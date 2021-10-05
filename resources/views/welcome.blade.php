@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="ja" class="h-100">
   <head>
@@ -6,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Cover Template · Bootstrap v5.0</title>
+    <title>epuipsy</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
 
@@ -66,3 +67,4 @@
     
   </body>
 </html>
+
