@@ -107,8 +107,8 @@
   </div>
 
 <footer class="footer mt-auto py-3 bg-light">
-<div class="container">
-    <span class="text-muted">Place sticky footer content here.</span>
+<div class="container text-center">
+    <span class="text-muted ">Thank you for using the equipsy.</span>
   </div>
 </footer>
 
