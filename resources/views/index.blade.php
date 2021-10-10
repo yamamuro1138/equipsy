@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-100">
+<html lang="ja" class="h-100">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -107,8 +107,8 @@
   </div>
 
 <footer class="footer mt-auto py-3 bg-light">
-<div class="container">
-    <span class="text-muted">Place sticky footer content here.</span>
+<div class="container text-center">
+    <span class="text-muted ">Thank you for using the equipsy.</span>
   </div>
 </footer>
 
