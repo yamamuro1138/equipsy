@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>epuipsy</title>
+    <title>equipsy</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
 
@@ -50,7 +50,7 @@
 
   <main class="px-3">
     <h1 class="display-2" style="line-height:3" >equipsy</h1>
-    <p class="lead display-6">epuipsyは、備品を管理するツールです。</p>
+    <p class="lead display-6">equipsyは、備品を管理するツールです。</p>
     <p class="lead display-6">初めてご利用の方は、新規登録からどうぞ。</p>
     <p class="lead" style="line-height:5">
     <button type="button" class="btn btn-secondary btn-lg">新規登録</button>
