@@ -33,8 +33,6 @@
     </style>
 
     
-    <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
   </head>
   <body class="d-flex h-100 text-center text-black bg-light" >
     
@@ -53,9 +51,10 @@
     <p class="lead display-6">equipsyは、備品を管理するツールです。</p>
     <p class="lead display-6">初めてご利用の方は、新規登録からどうぞ。</p>
     <p class="lead" style="line-height:5">
-    <button type="button" class="btn btn-secondary btn-lg">新規登録</button>
-    <button type="button" class="btn btn-secondary btn-lg">ログイン</button>
-    </p>
+
+    <a href="{{ url('/register') }}" class="btn btn-lg btn-secondary ">新規登録</a>
+    <a href="{{ url('/login') }}" class="btn btn-lg btn-secondary ">ログイン</a>
+  </p>
   </main>
 
   <footer class="mt-auto text-white-50">
