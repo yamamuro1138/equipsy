@@ -40,14 +40,8 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
-.form-signin input[type="password confirmation"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-
-.form-signin input[type="password login"] {
-    margin-bottom: 10px;
+.form-signin input[type="checkbox"] {
+    margin-top: 15px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
