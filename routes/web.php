@@ -16,24 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/register', function () {
-    return view('users/register');
-});
 
-Route::get('/login', function () {
-    return view('users/login');
-});
+Route::get('users/register', 'App\Http\Controllers\RegisterController@index');
 
-Route::get('/index', function () {
-    return view('/index');
-});
-
-Route::get('/create', function () {
-    return view('/create');
-});
-
-Route::get('/edit', function () {
-    return view('/edit');
-});
 
 
