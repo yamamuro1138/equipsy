@@ -44,7 +44,7 @@
     <label for="name" class="visually-hidden">name</label>
     <input type="name"  class="form-control" placeholder="名前" required autofocus>
     <label for="inputPassword" class="visually-hidden">Password</label>
-    <input type="password login" id="inputPassword" class="form-control" placeholder="パスワード" required>
+    <input type="password" id="inputPassword" class="form-control" placeholder="パスワード" required>
     <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="remember-me"> 記憶する
