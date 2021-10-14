@@ -17,7 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('users/register', 'App\Http\Controllers\RegisterController@index');
+// Route::get('users/register', 'App\Http\Controllers\RegisterController@index');
 
-
+Route::group(['prefix' => 'users', 'middleware' => 'auth'], function(){
+    Route::get('register', 'App\Http\Controllers\RegisterController@index');
+});
 
