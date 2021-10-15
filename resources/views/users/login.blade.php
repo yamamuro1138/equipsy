@@ -51,7 +51,7 @@
         <input type="checkbox" value="remember-me"> 記憶する
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">登録</button>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">ログイン</button>
   </form>
 </main>
 
