@@ -17,9 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('users/register', 'App\Http\Controllers\RegisterController@index');
-Route::get('/index', 'App\Http\Controllers\RegisterController@create');
+Route::get('auth/register', 'App\Http\Controllers\auth\RegisterController@index')->name('register.index');
+Route::get('auth/login', 'App\Http\Controllers\auth\LoginController@index')->name('login.index');
 
-// Route::group(['prefix' => 'users', 'middleware' => 'auth'], function(){
-//     Route::get('register', 'App\Http\Controllers\RegisterController@index');
-// });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
