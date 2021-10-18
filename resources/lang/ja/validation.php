@@ -148,7 +148,7 @@ return [
 
     'attributes' => [
         'name' => '名前',
-        'password' => 'パスワード'
-        'password_confirm' => 'パスワード(確認)'
+        'password' => 'パスワード',
+        'password_confirm' => 'パスワード(確認)',
     ],
 ];
