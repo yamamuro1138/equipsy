@@ -45,13 +45,23 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+      <!-- 備品登録 -->
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item active">
             <a class="nav-link active" aria-current="page" href="#">備品登録する</a>
           </li>
+          
+          <!-- ログアウト -->
           <li class="nav-item">
-            <a class="nav-link" href="#">ログアウト</a>
+            <a class="nav-link" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+                  ログアウト</a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                  </form>
           </li>
         </ul>
         <form class="d-flex">
@@ -63,7 +73,7 @@
   </nav>
 </header>
 
-<!-- Begin page content -->
+<!-- 備品情報一覧 -->
   <h1 class="h3 my-3">サンプルテーブル</h1>
   <div class="table-responsive-sm ">
   <table class="table table-striped mx-auto " style="width: 75%">
@@ -106,6 +116,7 @@
     </table>
   </div>
 
+<!-- フッター -->
 <footer class="footer mt-auto py-3 bg-light">
 <div class="container text-center">
     <span class="text-muted ">Thank you for using the equipsy.</span>
