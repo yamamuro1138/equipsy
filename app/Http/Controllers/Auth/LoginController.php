@@ -24,6 +24,10 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
+    // public function username() {
+    //     return 'name';
+    // }
+
     use AuthenticatesUsers;
 
 
@@ -32,7 +36,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = 'views/index';
 
     /**
      * Create a new controller instance.
