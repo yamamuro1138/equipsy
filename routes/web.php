@@ -17,8 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('auth/register', 'App\Http\Controllers\auth\RegisterController@index')->name('register.index');
-Route::get('auth/login', 'App\Http\Controllers\auth\LoginController@index')->name('login.index');
+Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+
 
 Route::get('views/index', function () {
     return view('index');

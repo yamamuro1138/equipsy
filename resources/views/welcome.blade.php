@@ -52,8 +52,8 @@
     <p class="lead display-6">初めてご利用の方は、新規登録からどうぞ。</p>
     <p class="lead" style="line-height:5">
 
-    <a href="{{ url('auth/register') }}" class="btn btn-lg btn-secondary ">新規登録</a>
-    <a href="{{ url('auth/login') }}" class="btn btn-lg btn-secondary ">ログイン</a>
+    <a href="{{ ('/register') }}" class="btn btn-lg btn-secondary ">新規登録</a>
+    <a href="{{ ('/login') }}" class="btn btn-lg btn-secondary ">ログイン</a>
   </p>
   </main>
 
