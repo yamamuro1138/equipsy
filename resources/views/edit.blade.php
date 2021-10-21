@@ -35,7 +35,7 @@
 </header>
 
 <body >
-    <div class="border col-7  mx-auto " style=" margin-top: 20vh; width: 35%;">
+    <div class="border col-7 bg-light mx-auto " style=" margin-top: 20vh; width: 35%;">
         <br>
         <h2 class="text-center">備品情報編集</h2>
         <br>
