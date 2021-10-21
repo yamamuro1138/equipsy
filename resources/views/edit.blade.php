@@ -17,16 +17,25 @@
 
 <header>
   <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark ">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">equipsy</a>
+      <a class="navbar-brand" href="views/index">{{ Auth::user()->name }}</a> 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          
+          <!-- ログアウト -->
           <li class="nav-item">
-            <a class="nav-link" href="#">ログアウト</a>
+            <a class="nav-link" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+                  ログアウト</a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                  </form>
           </li>
         </ul>
       </div>
