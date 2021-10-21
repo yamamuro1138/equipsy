@@ -13,8 +13,9 @@
 
     <!-- Bootstrap core CSS -->
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
-  <body class="d-flex flex-column h-100">
+
 
 <header>
   <!-- Fixed navbar -->
@@ -35,37 +36,34 @@
   </nav>
 </header>
 
-<div class="container-sm" style="background-color: rgba(0, 0, 255, 0.1); margin-top: 15vh; width: 45%; height: 70% ">
-    <h2 class="text-center my-5" >備品情報登録</h3>
-    <form >
-        <!-- 管理NO入力欄 -->
-        <div class="form-group my-3 mx-auto" style="width: 35%">
-          <label for="Management no">管理NO</label>
-          <input type="Management no" class="form-control "  aria-describedby="Management no" placeholder="管理NOを入力">
+<body >
+    <div class="border col-7 bg-light mx-auto " style=" margin-top: 20vh; width: 35%;">
+        <br>
+        <h2 class="text-center">備品情報登録</h2>
+        <br>
+        <div class="row ">
+            <div class="col-md ">
+                <form > 
+                    <div class="form-group my-3 mx-auto" >
+                        <label>管理番号</label>
+                        <input type="text" class="form-control" placeholder="管理番号">
+                    </div>
+                    <div class="form-group my-3 mx-auto" >
+                        <label>備品名</label>
+                        <input type="text" class="form-control" placeholder="備品名">
+                    </div>
+                    <div class="form-group my-3 mx-auto" >
+                        <label>数量</label>
+                        <input type="text" class="form-control " placeholder="数量">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            <div class="col-5  mx-auto text-center my-4">
+                <button type="button" class=" btn btn-lg btn-primary">登録</button>
+            </div>
         </div>
-        <!-- 備品名入力欄 -->
-        <div class="form-group my-3 mx-auto" style="width: 35%">
-          <label for="item">備品名</label>
-          <input type="item" class="form-control"  placeholder="備品名を入力">
-        </div>
-        <!-- 数量入力欄 -->
-        <div class="form-group my-3 mx-auto" style="width: 15%">
-            <label for="quantity">数量</label>
-            <input type="quantity" class="form-control" ></textarea>
-        </div>
-        <!-- 送信ボタン -->
-        <div class="text-center my-4">
-        <button type="submit" class=" btn btn-lg btn-primary ">登録</button>
-        </div>
-      </form>
-  </div>
 
+  </body>
 
-<footer class="footer mt-auto py-3 bg-light fixed-bottom ">
-<div class="container text-center ">
-    <span class="text-muted ">Thank you for using the equipsy.</span>
-  </div>
-</footer>
-
-</body>
 </html>
