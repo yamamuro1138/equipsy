@@ -50,7 +50,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item active">
-            <a class="nav-link active" aria-current="page" href="#">備品登録する</a>
+            <a class="nav-link active" aria-current="page" href="{{ ('/create') }}">備品登録する</a>
           </li>
           
           <!-- ログアウト -->
@@ -115,14 +115,6 @@
       </tbody>
     </table>
   </div>
-
-<!-- フッター -->
-<footer class="footer mt-auto py-3 bg-light">
-<div class="container text-center">
-    <span class="text-muted ">Thank you for using the equipsy.</span>
-  </div>
-</footer>
-
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
