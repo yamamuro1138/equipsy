@@ -54,7 +54,8 @@
         <div class="row ">
             <div class="col-md ">
               <!-- フォーム -->
-                <form method="POST" action=""> 
+                <form method="POST" action="{{ route('post.store') }}"> 
+                  @csrf
                   <!-- 管理番号 -->
                     <div class="form-group my-3 mx-auto" >
                         <label>管理番号</label>
@@ -68,14 +69,14 @@
                     <!-- 数量 -->
                     <div class="form-group my-3 mx-auto" >
                         <label>数量</label>
-                        <input type="text" name="quantity" class="form-control " placeholder="数量">
+                        <input type="number" name="quantity" class="form-control" placeholder="数量">
+                    </div>
+                    <!-- 登録ボタン -->
+                    <div class="col-5  mx-auto text-center my-4">
+                        <button type="submit" class=" btn btn-lg btn-primary">登録</button>
                     </div>
                   </form>
-                </div>
               </div>
-              <!-- 登録ボタン -->
-            <div class="col-5  mx-auto text-center my-4">
-                <button type="submit" class=" btn btn-lg btn-primary">登録</button>
             </div>
         </div>
 

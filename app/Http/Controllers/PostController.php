@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use APP\Models\User;
+use App\Models\Post;
+use Auth;
 
 class PostController extends Controller
 {
@@ -35,7 +38,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Postモデルのインスタンスを作成
+        $post = new Post;
+        $post->control_number = $request->input('control_number');
+        $post->name = $request->input('name');
+        $post->quantity = $request->input('quantity');
+        $post->user_id = Auth::id();//ログインしているユーザーidを登録している
+
+        $post->save();
+
+        //登録後に一覧画面へ遷移
+        return redirect('views/index');
+
+        // dd($control_number);
     }
 
     /**

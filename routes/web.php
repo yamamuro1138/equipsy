@@ -19,7 +19,9 @@ Route::get('/', function () {
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
 Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+
 Route::get('/create', [App\Http\Controllers\PostController::class, 'create'])->name('post.create');
+Route::post('/create', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
 
 Route::get('views/index', function () {
     return view('index');
