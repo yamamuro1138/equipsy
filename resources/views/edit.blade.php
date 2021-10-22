@@ -50,25 +50,30 @@
         <br>
         <div class="row ">
             <div class="col-md ">
+              <!-- フォーム -->
                 <form > 
+                  <!-- 管理番号 -->
                     <div class="form-group my-3 mx-auto" >
                         <label>管理番号</label>
-                        <input type="text" class="form-control" placeholder="管理番号">
+                        <input type="text" name="control_number" class="form-control" placeholder="管理番号">
                     </div>
+                    <!-- 備品名 -->
                     <div class="form-group my-3 mx-auto" >
                         <label>備品名</label>
-                        <input type="text" class="form-control" placeholder="備品名">
+                        <input type="text" name="name" class="form-control" placeholder="備品名">
                     </div>
+                    <!-- 数量 -->
                     <div class="form-group my-3 mx-auto" >
                         <label>数量</label>
-                        <input type="text" class="form-control " placeholder="数量">
+                        <input type="text" name="quantity" class="form-control " placeholder="数量">
                     </div>
                   </form>
                 </div>
               </div>
+              <!-- 登録ボタン -->
             <div class="col-5  mx-auto text-center my-4">
             <button type="submit" class=" btn btn-lg btn-secondary ">一覧に戻る</button>
-            <button type="button" class=" btn btn-lg btn-primary">登録</button>
+            <button type="submit" class=" btn btn-lg btn-primary">登録</button>
             </div>
         </div>
 
