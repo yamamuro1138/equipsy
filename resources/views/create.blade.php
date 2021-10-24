@@ -53,6 +53,15 @@
         <br>
         <div class="row ">
             <div class="col-md ">
+              @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
               <!-- フォーム -->
                 <form method="POST" action="{{ route('post.store') }}"> 
                   @csrf
@@ -64,7 +73,7 @@
                     <!-- 備品名 -->
                     <div class="form-group my-3 mx-auto" >
                         <label>備品名</label>
-                        <input type="text" name="name" class="form-control" placeholder="備品名">
+                        <input type="text" name="item" class="form-control" placeholder="備品名">
                     </div>
                     <!-- 数量 -->
                     <div class="form-group my-3 mx-auto" >
