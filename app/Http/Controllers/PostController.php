@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use APP\Models\User;
 use App\Models\Post;
 use Auth;
+use Validator;
 
 class PostController extends Controller
 {
@@ -38,10 +39,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        //バリデーション
+        $validator = Validator::make($request->all(),[
+            'item' => 'required',
+            'quantity' => 'required',
+        ]);
+        //バリデーションエラー
+        if($validator->fails()) {
+            return redirect()->back()
+            ->withInput()
+            ->withErrors($validator);
+        }
         //Postモデルのインスタンスを作成
         $post = new Post;
         $post->control_number = $request->input('control_number');
-        $post->name = $request->input('name');
+        $post->item = $request->input('item');
         $post->quantity = $request->input('quantity');
         $post->user_id = Auth::id();//ログインしているユーザーidを登録している
 
@@ -50,7 +62,6 @@ class PostController extends Controller
         //登録後に一覧画面へ遷移
         return redirect('views/index');
 
-        // dd($control_number);
     }
 
     /**

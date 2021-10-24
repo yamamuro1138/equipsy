@@ -53,6 +53,7 @@
         <br>
         <div class="row ">
             <div class="col-md ">
+              <!-- エラーメッセージ -->
               @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -61,23 +62,23 @@
                             @endforeach
                         </ul>
                     </div>
-                @endif
+                    @endif
               <!-- フォーム -->
                 <form method="POST" action="{{ route('post.store') }}"> 
                   @csrf
                   <!-- 管理番号 -->
                     <div class="form-group my-3 mx-auto" >
-                        <label>管理番号</label>
+                        <label>管理番号</label> 
                         <input type="text" name="control_number" class="form-control" placeholder="管理番号">
                     </div>
                     <!-- 備品名 -->
                     <div class="form-group my-3 mx-auto" >
-                        <label>備品名</label>
+                        <label>備品名</label><label class="text-danger">(必須)</label>
                         <input type="text" name="item" class="form-control" placeholder="備品名">
                     </div>
                     <!-- 数量 -->
                     <div class="form-group my-3 mx-auto" >
-                        <label>数量</label>
+                        <label>数量</label><label class="text-danger">(必須)</label>
                         <input type="number" name="quantity" class="form-control" placeholder="数量">
                     </div>
                     <!-- 登録ボタン -->
