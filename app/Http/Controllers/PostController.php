@@ -18,7 +18,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        return view('index');
+        $posts = Post::all();
+        return view('index', compact('posts'));
     }
 
     /**
@@ -61,7 +62,7 @@ class PostController extends Controller
         $post->save();
 
         //登録後に一覧画面へ遷移
-        return redirect('views/index');
+        return redirect('/index');
 
     }
 

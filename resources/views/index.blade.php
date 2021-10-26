@@ -74,44 +74,29 @@
 </header>
 
 <!-- 備品情報一覧 -->
-  <h1 class="h3 my-3">サンプルテーブル</h1>
+  <h1 class="h3 my-4">サンプルテーブル</h1>
   <div class="table-responsive-sm ">
-  <table class="table table-striped mx-auto " style="width: 75%">
+  <table class="table table-striped mx-auto text-center" style="width: 70%">
       <thead>
         <tr>
-          <th  scope="col">#</th>
-          <th  scope="col">A</th>
-          <th  scope="col">B</th>
-          <th  scope="col">C</th>
-          <th  scope="col">D</th>
-          <th  scope="col">E</th>
+          <th  scope="col">管理番号</th>
+          <th  scope="col">備品名</th>
+          <th  scope="col">数量</th>
+          <th  scope="col">更新日時</th>
+          <th  scope="col">編集or削除</th>
+          <!-- <th  scope="col">&#65049;</th> -->
         </tr>
       </thead>
       <tbody>
+      @foreach($posts as $post)
         <tr>
-          <th scope="row">1</th>
-          <td>sample(A,1)</td>
-          <td>sample(B,1)</td>
-          <td>sample(C,1)</td>
-          <td>sample(D,1)</td>
-          <td>sample(E,1)</td>
+          <td>{{$post->control_number}}</td>
+          <td>{{$post->item}}</td>
+          <td>{{$post->quantity}}</td>
+          <td>{{$post->created_at->format('Y.m.d')}}</td>
+          <td>&#65049;</td>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>sample(A,2)</td>
-          <td>sample(B,2)</td>
-          <td>sample(C,2)</td>
-          <td>sample(D,2)</td>
-          <td>sample(E,2)</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>sample(A,3)</td>
-          <td>sample(B,3)</td>
-          <td>sample(C,3)</td>
-          <td>sample(D,3)</td>
-          <td>sample(E,3)</td>
-        </tr>
+      @endforeach
       </tbody>
     </table>
   </div>
