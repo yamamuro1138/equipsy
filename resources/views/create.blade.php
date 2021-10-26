@@ -79,7 +79,7 @@
                     <!-- 数量 -->
                     <div class="form-group my-3 mx-auto" >
                         <label>数量</label><label class="text-danger">(必須)</label>
-                        <input type="number" name="quantity" class="form-control" placeholder="数量">
+                        <input type="number" name="quantity" class="form-control" placeholder="数量" min="0">
                     </div>
                     <!-- 登録ボタン -->
                     <div class="col-5  mx-auto text-center my-4">
