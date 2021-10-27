@@ -16,10 +16,11 @@
 </head>
 
 <header>
-  <!-- Fixed navbar -->
+  <!-- ナビバー -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="views/index">{{ Auth::user()->name }}</a> 
+      <!-- ユーザーネーム -->
+      <a class="navbar-brand" href="/index">{{ Auth::user()->name  }}</a> 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -50,30 +51,41 @@
         <br>
         <div class="row ">
             <div class="col-md ">
+              <!-- エラーメッセージ -->
+              @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
               <!-- フォーム -->
-                <form > 
+                <form method="POST" action="{{ route('post.store') }}"> 
+                  @csrf
                   <!-- 管理番号 -->
                     <div class="form-group my-3 mx-auto" >
-                        <label>管理番号</label>
+                        <label>管理番号</label> 
                         <input type="text" name="control_number" class="form-control" placeholder="管理番号">
                     </div>
                     <!-- 備品名 -->
                     <div class="form-group my-3 mx-auto" >
-                        <label>備品名</label>
-                        <input type="text" name="name" class="form-control" placeholder="備品名">
+                        <label>備品名</label><label class=" mx-2 text-center rounded text-light bg-danger" >必須</label>
+                        <input type="text" name="item" class="form-control my-2" placeholder="備品名">
                     </div>
                     <!-- 数量 -->
                     <div class="form-group my-3 mx-auto" >
-                        <label>数量</label>
-                        <input type="text" name="quantity" class="form-control " placeholder="数量">
+                        <label>数量</label><label class=" mx-2 text-center rounded text-light bg-danger" >必須</label>
+                        <input type="number" name="quantity" class="form-control my-2" placeholder="数量" min="0">
+                    </div>
+                    <!-- 登録ボタン -->
+                    <div class=" mx-auto text-center my-4">
+                        <button type="submit" class=" btn btn-lg btn-primary">更新する</button>
+                        <a href="/index"  class=" btn btn-lg btn-secondary">一覧に戻る</a>
                     </div>
                   </form>
-                </div>
               </div>
-              <!-- 登録ボタン -->
-            <div class="col-5  mx-auto text-center my-4">
-            <button type="submit" class=" btn btn-lg btn-secondary ">一覧に戻る</button>
-            <button type="submit" class=" btn btn-lg btn-primary">登録</button>
             </div>
         </div>
 

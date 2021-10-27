@@ -41,7 +41,7 @@
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand">{{ Auth::user()->name }}</a> 
+      <a class="navbar-brand">{{ Auth::user()->name}}</a> 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -95,7 +95,7 @@
           <td>{{$post->quantity}}</td>
           <td>{{$post->created_at->format('Y.m.d')}}</td>
           <td>
-          <a href="" class="btn btn-primary btn-sm">編集</a>
+          <a href="/edit/{{ $post->id }}" class="btn btn-primary btn-sm">編集</a>
           <a href="" class="btn btn-danger btn-sm">削除</a>
           </td>
         </tr>
