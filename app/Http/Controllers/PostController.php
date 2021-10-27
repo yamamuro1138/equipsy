@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use APP\Models\User;
+use App\Models\User;
 use App\Models\Post;
 use Auth;
 use Validator;
@@ -19,6 +19,11 @@ class PostController extends Controller
     {
         //
         $posts = Post::all();
+        // 選ばれたユーザーを取得する
+        $id=Auth::user()->id;
+        // 選ばれたユーザーに紐づく登録を取得する
+        $posts = Post::where('user_id', $id)->get();
+
         return view('index', compact('posts'));
     }
 
