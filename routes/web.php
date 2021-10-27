@@ -20,9 +20,9 @@ Route::get('/', function () {
 Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
 Route::get('/login', [LoginController::class, 'index'])->name('login.index');
 
-Route::get('/index', [App\Http\Controllers\PostController::class, 'index'])->name('post.index');
-Route::get('/edit/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('post.edit');
-Route::get('/create', [App\Http\Controllers\PostController::class, 'create'])->name('post.create');
+Route::get('/index', [App\Http\Controllers\PostController::class, 'index'])->name('post.index')->middleware('auth');
+Route::get('/edit/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('post.edit')->middleware('auth');
+Route::get('/create', [App\Http\Controllers\PostController::class, 'create'])->name('post.create')->middleware('auth');
 Route::post('/create', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
 
 // Route::get('views/index', function () {
