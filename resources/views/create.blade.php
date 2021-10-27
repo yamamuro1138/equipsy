@@ -73,13 +73,13 @@
                     </div>
                     <!-- 備品名 -->
                     <div class="form-group my-3 mx-auto" >
-                        <label>備品名</label><label class="text-danger">(必須)</label>
-                        <input type="text" name="item" class="form-control" placeholder="備品名">
+                        <label>備品名</label><label class=" mx-2 text-center rounded text-light bg-danger">必須</label>
+                        <input type="text" name="item" class="form-control my-2" placeholder="備品名">
                     </div>
                     <!-- 数量 -->
                     <div class="form-group my-3 mx-auto" >
-                        <label>数量</label><label class="text-danger">(必須)</label>
-                        <input type="number" name="quantity" class="form-control" placeholder="数量" min="0">
+                        <label>数量</label><label class=" mx-2 text-center rounded text-light bg-danger" >必須</label>
+                        <input type="number" name="quantity" class="form-control my-2" placeholder="数量" min="0">
                     </div>
                     <!-- 登録ボタン -->
                     <div class="col-5  mx-auto text-center my-4">
