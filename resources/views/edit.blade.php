@@ -62,22 +62,22 @@
                     </div>
                     @endif
               <!-- フォーム -->
-                <form method="POST" action="{{ route('post.store') }}"> 
+                <form method="POST" action="{{route('post.update', ['id' => $post->id])}}"> 
                   @csrf
                   <!-- 管理番号 -->
                     <div class="form-group my-3 mx-auto" >
                         <label>管理番号</label> 
-                        <input type="text" name="control_number" class="form-control" placeholder="管理番号">
+                        <input type="text" name="control_number" class="form-control" placeholder="管理番号" value="{{$post->control_number}}">
                     </div>
                     <!-- 備品名 -->
                     <div class="form-group my-3 mx-auto" >
                         <label>備品名</label><label class=" mx-2 text-center rounded text-light bg-danger" >必須</label>
-                        <input type="text" name="item" class="form-control my-2" placeholder="備品名">
+                        <input type="text" name="item" class="form-control my-2" placeholder="備品名" value="{{$post->item}}">
                     </div>
                     <!-- 数量 -->
                     <div class="form-group my-3 mx-auto" >
                         <label>数量</label><label class=" mx-2 text-center rounded text-light bg-danger" >必須</label>
-                        <input type="number" name="quantity" class="form-control my-2" placeholder="数量" min="0">
+                        <input type="number" name="quantity" class="form-control my-2" placeholder="数量" min="0" value="{{$post->quantity}}">
                     </div>
                     <!-- 登録ボタン -->
                     <div class=" mx-auto text-center my-4">

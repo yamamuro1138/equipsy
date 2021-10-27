@@ -91,8 +91,8 @@ class PostController extends Controller
     public function edit($id)
     {
         //
-        $posts = Post::find($id);
-        return view('edit', compact('posts'));
+        $post = Post::find($id);
+        return view('edit', compact('post'));
     }
 
     /**
@@ -104,7 +104,28 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        //バリデーション
+        $validator = Validator::make($request->all(),[
+            'item' => 'required',
+            'quantity' => 'required',
+        ]);
+        //バリデーションエラー
+        if($validator->fails()) {
+            return redirect()->back()
+            ->withInput()
+            ->withErrors($validator);
+        }        
+        $post = Post::find($id);
+        $post->control_number = $request->input('control_number');
+        $post->item = $request->input('item');
+        $post->quantity = $request->input('quantity');
+        $post->user_id = Auth::id();//ログインしているユーザーidを登録している
+
+        $post->save();
+
+        //登録後に一覧画面へ遷移
+        return redirect('/index');
     }
 
     /**
