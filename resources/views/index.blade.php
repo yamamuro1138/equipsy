@@ -82,7 +82,7 @@
           <th  scope="col">管理番号</th>
           <th  scope="col">備品名</th>
           <th  scope="col">数量</th>
-          <th  scope="col">更新日時</th>
+          <th  scope="col">更新日</th>
           <th  scope="col">編集or削除</th>
           <!-- <th  scope="col">&#65049;</th> -->
         </tr>
@@ -93,10 +93,17 @@
           <td>{{$post->control_number}}</td>
           <td>{{$post->item}}</td>
           <td>{{$post->quantity}}</td>
-          <td>{{$post->created_at->format('Y.m.d')}}</td>
+          <td>{{$post->updated_at->format('Y.m.d')}}</td>
           <td>
-          <a href="/edit/{{ $post->id }}" class="btn btn-primary btn-sm">編集</a>
-          <a href="" class="btn btn-danger btn-sm">削除</a>
+            <div class=" btn-group ">
+              <form method="get" action="/edit/{{ $post->id }}">
+              @csrf
+              <input class="btn btn-primary btn-sm" type="submit" value="編集" >
+              <form method="post" action="{{route('post.destroy', ['id' => $post->id])}}" >
+              @csrf
+              <input class="btn btn-danger btn-sm"  type="submit" value="削除" >
+              </form>
+            </div>
           </td>
         </tr>
       @endforeach
