@@ -13,8 +13,7 @@
     
 
     <!-- Bootstrap core CSS -->
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -95,13 +94,35 @@
           <td>{{$post->quantity}}</td>
           <td>{{$post->updated_at->format('Y.m.d')}}</td>
           <td>
-            <div class=" btn-group ">
+            <div class=" btn-group  ">
               <form method="get" action="/edit/{{ $post->id }}">
               @csrf
-              <input class="btn btn-primary btn-sm" type="submit" value="編集" >
+              <input class="btn btn-primary btn-sm mx-1" type="submit" value="編集" >
+              </form>
               <form method="post" action="{{route('post.destroy', ['id' => $post->id])}}" >
               @csrf
-              <input class="btn btn-danger btn-sm"  type="submit" value="削除" >
+              <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              削除
+              </button>
+              
+              <!-- モーダルメッセージ -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">削除確認メッセージ</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      備品情報を本当に削除しますか？
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                      <input type="submit" class="btn btn-primary" value="削除する"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
               </form>
             </div>
           </td>
@@ -112,7 +133,6 @@
   </div>
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
       
   </body>
 </html>
