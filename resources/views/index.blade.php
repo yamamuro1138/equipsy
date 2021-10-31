@@ -35,9 +35,8 @@
     <link href="../assets/dist/css/sticky-footer-navbar.css" rel="stylesheet">
   </head>
   <body class="d-flex flex-column h-100">
-    
+
 <header>
-  <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand">{{ Auth::user()->name}}</a> 
@@ -63,18 +62,17 @@
                   </form>
           </li>
         </ul>
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+        <form  method="GET" class="d-flex">
+          @csrf
+            <input class="form-control  mr-sm-2" name="search" type="text" placeholder="検索..." aria-label="Search">
+            <button class="btn btn-outline-success my-2 mx-1 my-sm-0 " type="submit">search</button>
         </form>
-      </div>
     </div>
   </nav>
 </header>
 
 <!-- 備品情報一覧 -->
-  <h1 class="h3 my-4">サンプルテーブル</h1>
-  <div class="table-responsive-sm ">
+  <div class="table-responsive-sm" style="margin-top: 10vh;">
   <table class="table table-striped mx-auto text-center" style="width: 70%">
       <thead>
         <tr>
@@ -83,7 +81,6 @@
           <th  scope="col">数量</th>
           <th  scope="col">更新日</th>
           <th  scope="col">編集or削除</th>
-          <!-- <th  scope="col">&#65049;</th> -->
         </tr>
       </thead>
       <tbody>
@@ -94,16 +91,13 @@
           <td>{{$post->quantity}}</td>
           <td>{{$post->updated_at->format('Y.m.d')}}</td>
           <td>
-            <div class=" btn-group  ">
+            <div class="btn-group">
               <form method="get" action="/edit/{{ $post->id }}">
               @csrf
               <input class="btn btn-primary btn-sm mx-1" type="submit" value="編集" >
               </form>
-              <form method="post" action="{{route('post.destroy', ['id' => $post->id])}}" >
-              @csrf
-              <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              削除
-              </button>
+              <input class="btn btn-primary btn-sm btn-danger mx-1" type="submit" value="削除" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            </div>
               
               <!-- モーダルメッセージ -->
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -116,20 +110,24 @@
                     <div class="modal-body">
                       備品情報を本当に削除しますか？
                     </div>
+                    <form method="post" action="{{route('post.destroy', ['id' => $post->id])}}" >
+                    @csrf
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
                       <input type="submit" class="btn btn-primary" value="削除する"></button>
                     </div>
+                    </form>
                   </div>
                 </div>
               </div>
-              </form>
-            </div>
           </td>
         </tr>
       @endforeach
       </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+      {{$posts->links('pagination::bootstrap-4')}}
+    </div>
   </div>
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

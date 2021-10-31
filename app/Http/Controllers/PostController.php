@@ -22,7 +22,7 @@ class PostController extends Controller
         // 選ばれたユーザーを取得する
         $id=Auth::user()->id;
         // 選ばれたユーザーに紐づく登録を取得する
-        $posts = Post::where('user_id', $id)->get();
+        $posts = Post::where('user_id', $id)->paginate(12);
 
         return view('index', compact('posts'));
     }
