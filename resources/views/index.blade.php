@@ -62,9 +62,9 @@
                   </form>
           </li>
         </ul>
-        <form  method="GET" class="d-flex">
+        <form method="GET" action="{{url('/index')}}" class="d-flex">
           @csrf
-            <input class="form-control  mr-sm-2" name="search" type="text" placeholder="検索..." aria-label="Search">
+            <input class="form-control  mr-sm-2" name="search"  type="text" placeholder="検索..." aria-label="Search">
             <button class="btn btn-outline-success my-2 mx-1 my-sm-0 " type="submit">search</button>
         </form>
     </div>

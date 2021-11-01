@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Post;
 use Auth;
@@ -15,15 +16,35 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
         $posts = Post::all();
         // 選ばれたユーザーを取得する
         $id=Auth::user()->id;
         // 選ばれたユーザーに紐づく登録を取得する
         $posts = Post::where('user_id', $id)->paginate(12);
 
+        $search = $request->input('search');
+        
+        $query = Post::query('posts');
+        // $query = DB::table('posts');
+
+        if($search !== null){
+            $search_split = mb_convert_kana($search,'s');
+
+            $search_split2 = preg_split('/[\s]+/', $search_split,-1,PREG_SPLIT_NO_EMPTY);
+
+            foreach($search_split2 as $value)
+            {
+                $query->where('item', 'like', '%' .$value.'%')
+                ->orwhere('control_number', 'like', '%' .$value.'%');
+            }
+        };
+
+        $posts = $query->paginate(12);
+
+            
         return view('index', compact('posts'));
     }
 
