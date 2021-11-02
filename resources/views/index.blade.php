@@ -96,11 +96,18 @@
               @csrf
               <input class="btn btn-primary btn-sm mx-1" type="submit" value="編集" >
               </form>
-              <input class="btn btn-primary btn-sm btn-danger mx-1" type="submit" value="削除" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <input class="btn btn-primary btn-sm btn-danger mx-1"  type="submit" value="削除" data-bs-toggle="modal" data-bs-target="#exampleModal" >
             </div>
+            </td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
               
               <!-- モーダルメッセージ -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal fade" id="exampleModal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <form method="post" action="{{route('post.destroy', ['id' => $post->id])}}" >
+                    @csrf
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -110,21 +117,16 @@
                     <div class="modal-body">
                       備品情報を本当に削除しますか？
                     </div>
-                    <form method="post" action="{{route('post.destroy', ['id' => $post->id])}}" >
-                    @csrf
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
                       <input type="submit" class="btn btn-primary" value="削除する"></button>
                     </div>
-                    </form>
                   </div>
                 </div>
+                </form>
               </div>
-          </td>
-        </tr>
-      @endforeach
-      </tbody>
-    </table>
+            </div>
+
     <div class="d-flex justify-content-center">
       {{$posts->links('pagination::bootstrap-4')}}
     </div>
