@@ -62,11 +62,14 @@
                   </form>
           </li>
         </ul>
+        <!-- 検索フォーム -->
         <form method="GET" action="{{url('/index')}}" class="d-flex">
-          @csrf
-            <input class="form-control  mr-sm-2" name="search"  type="text" placeholder="検索..." aria-label="Search">
-            <button class="btn btn-outline-success my-2 mx-1 my-sm-0 " type="submit">search</button>
-        </form>
+        @csrf
+        <div class="form-group mb-2">
+            <input type="text" name="search" class="form-control" placeholder="キーワードを入力">
+        </div>
+          <button type="submit" class="btn btn-outline-success mb-2">検索</button>
+    </form>
     </div>
   </nav>
 </header>
@@ -96,41 +99,42 @@
               @csrf
               <input class="btn btn-primary btn-sm mx-1" type="submit" value="編集" >
               </form>
-              <input class="btn btn-primary btn-sm btn-danger mx-1"  type="submit" value="削除" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+              <input class="btn  btn-sm btn-danger mx-1"  type="submit" value="削除" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $post->id }}">
             </div>
-            </td>
+          </td>
         </tr>
-        @endforeach
-      </tbody>
+
+
+    <!-- モーダルメッセージ -->
+    <div class="modal fade" id="exampleModal{{ $post->id }}"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <form method="POST" action="{{route('post.destroy', ['id' => $post->id])}}" >
+          @csrf
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModal{{ $post->id }}">削除確認メッセージ</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            備品情報を本当に削除しますか？
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+            <input type="submit" class="btn btn-primary" value="削除する"></button>
+          </div>
+        </div>
+      </div>
+      </form>
+      @endforeach
+        </tbody>
     </table>
-              
-              <!-- モーダルメッセージ -->
-              <div class="modal fade" id="exampleModal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <form method="post" action="{{route('post.destroy', ['id' => $post->id])}}" >
-                    @csrf
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">削除確認メッセージ</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      備品情報を本当に削除しますか？
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
-                      <input type="submit" class="btn btn-primary" value="削除する"></button>
-                    </div>
-                  </div>
-                </div>
-                </form>
-              </div>
-            </div>
 
     <div class="d-flex justify-content-center">
       {{$posts->links('pagination::bootstrap-4')}}
     </div>
-  </div>
+    </div>
+
+
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
       
