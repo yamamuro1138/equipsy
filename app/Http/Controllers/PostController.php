@@ -19,32 +19,19 @@ class PostController extends Controller
     public function index(Request $request)
     {
 
-        $posts = Post::all();
         // 選ばれたユーザーを取得する
         $id=Auth::user()->id;
-        // 選ばれたユーザーに紐づく登録を取得する
-        $posts = Post::where('user_id', $id)->paginate(12);
 
-        $search = $request->input('search');
+        $search = $request->input('search') ?: "";
         
-        $query = Post::query('posts');
-        // $query = DB::table('posts');
-
-        if($search !== null){
-            $search_split = mb_convert_kana($search,'s');
-
-            $search_split2 = preg_split('/[\s]+/', $search_split,-1,PREG_SPLIT_NO_EMPTY);
-
-            foreach($search_split2 as $value)
-            {
-                $query->where('item', 'like', '%' .$value.'%')
-                ->orwhere('control_number', 'like', '%' .$value.'%');
-            }
-        };
+        $query = Post::query();
+            // 選ばれたユーザーに紐づく登録を取得する
+            $query->where('user_id', $id)
+            ->where('item', 'LIKE', "%{$search}%")
+                ->orWhere('control_number', 'LIKE', "%{$search}%");
 
         $posts = $query->paginate(12);
 
-            
         return view('index', compact('posts'));
     }
 
