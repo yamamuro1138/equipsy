@@ -22,13 +22,20 @@ class PostController extends Controller
         // 選ばれたユーザーを取得する
         $id=Auth::user()->id;
 
+        // $posts = Post::where('user_id', $id)->paginate(12);
+
         $search = $request->input('search') ?: "";
         
         $query = Post::query();
-            // 選ばれたユーザーに紐づく登録を取得する
+
+        if(!empty($search))
+        {
             $query->where('user_id', $id)
-            ->where('item', 'LIKE', "%{$search}%")
-                ->orWhere('control_number', 'LIKE', "%{$search}%");
+            ->where('item','like','%'.$search.'%');
+        }else{
+            $query->where('user_id', $id);
+        }
+
 
         $posts = $query->paginate(12);
 

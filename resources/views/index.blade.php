@@ -66,7 +66,7 @@
         <form method="GET" action="{{url('/index')}}" class="d-flex">
         @csrf
         <div class="form-group mb-2">
-            <input type="text" name="search" class="form-control" placeholder="キーワードを入力">
+            <input type="text" name="search" class="form-control" placeholder="備品名を入力">
         </div>
           <button type="submit" class="btn btn-outline-success mb-2">検索</button>
     </form>
