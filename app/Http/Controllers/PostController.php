@@ -31,6 +31,7 @@ class PostController extends Controller
             $query->where('user_id', $id)
             ->where('item','like','%'.$search.'%');
         }else{
+            //選ばれたユーザーに紐づく登録をする
             $query->where('user_id', $id);
         }
 
