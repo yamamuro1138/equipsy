@@ -22,8 +22,6 @@ class PostController extends Controller
         // 選ばれたユーザーを取得する
         $id=Auth::user()->id;
 
-        // $posts = Post::where('user_id', $id)->paginate(12);
-
         $search = $request->input('search') ?: "";
         
         $query = Post::query();
