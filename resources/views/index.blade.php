@@ -85,7 +85,7 @@
                     <th scope="col">備品名</th>
                     <th scope="col">数量</th>
                     <th scope="col">更新日</th>
-                    <th scope="col">編集or削除</th>
+                    <th scope="col">編集・削除</th>
                 </tr>
             </thead>
             <tbody>
