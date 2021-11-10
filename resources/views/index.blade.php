@@ -121,7 +121,7 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    備品情報を本当に削除しますか？
+                                {{$post->item}}を本当に削除しますか？
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
