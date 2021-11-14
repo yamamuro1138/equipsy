@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('test');
-});
-
 //ユーザー管理
 Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
 Route::get('/login', [LoginController::class, 'index'])->name('login.index');
