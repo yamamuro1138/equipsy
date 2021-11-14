@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     <!-- <form method="POST" action="{{ route('register') }}"> -->
-                    <form action="http://equipsy.net/register" method="post" name="sample"> 
+                    <form action="https://equipsy.net/register" method="post" name="sample"> 
                         @csrf
 
                         <div class="form-group row">
