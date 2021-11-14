@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 //ユーザー管理
+Route::get('/test', [TestController::class, 'index']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
 Route::get('/login', [LoginController::class, 'index'])->name('login.index');
 
