@@ -16,11 +16,11 @@ equipsy
 -   Laravel Sail
 
 ## URL
-
+https://equipsy.net/
 ## テスト用アカウント
 
--
--
+- 名前： テスト
+- パスワード： test1111
 
 ## 利用方法
 
@@ -37,32 +37,4 @@ equipsy
     あらゆる面で最適な方法とは思えません。なので備品管理ツールを作成し
     管理の最適化を図りました。
 
-## ER 図
 
-[![Image from Gyazo](https://i.gyazo.com/dd67eba9a1a7372a35286cb1f4483954.png)](https://gyazo.com/dd67eba9a1a7372a35286cb1f4483954)
-
-## テーブル設計
-
-## users テーブル
-
-| column   | Type   |
-| -------- | ------ |
-| name     | string |
-| password | string |
-
-### Association
-
--   has_many :posts
-
-## posts テーブル
-
-| column         | Type       |
-| -------------- | ---------- |
-| control_number | string     |
-| item           | string     |
-| quantity       | string     |
-| user           | references |
-
-### Association
-
--   belongs_to :user
