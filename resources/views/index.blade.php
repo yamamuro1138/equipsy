@@ -110,7 +110,7 @@
 
                 <!-- モーダルメッセージ -->
                 <div class="modal fade" id="exampleModal{{ $post->id }}" tabindex="-1"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 10vh;">
                     <form method="POST" action="{{route('post.destroy', ['id' => $post->id])}}">
                         @csrf
                         <div class="modal-dialog">
